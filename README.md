@@ -1,3 +1,5 @@
+> in development...
+
 # Coins
  A currency quote app where you can check the price of the main currencies on the market.
 
