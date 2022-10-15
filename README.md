@@ -1,6 +1,6 @@
 > in development...
 
-# available coins
+# Coins
  A currency quote app where you can check the price of the main currencies on the market.
 
 ### Market Coins
