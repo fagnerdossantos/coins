@@ -19,7 +19,7 @@
 
 ## GIF
 
-https://user-images.githubusercontent.com/61123877/196009671-f960d864-8cdf-457a-9daa-dbddd1c1680d.mp4
+https://user-images.githubusercontent.com/61123877/196010081-c0a7718c-d5b4-4075-9441-7536ebc343f9.mp4
 
 ## Running
 In order to have all the dependencies run:<br>
