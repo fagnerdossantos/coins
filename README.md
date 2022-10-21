@@ -17,7 +17,25 @@
 - Bitcoin
 - Ethereum
 
-<!-- ## GIF-->
+## Videos
+### Real SmartPhone
+> Galaxy A52s
+
+https://user-images.githubusercontent.com/61123877/197269661-e76ba344-5695-4499-a314-d6abf0d72d0e.mp4
+
+### Emulator
+> Pixel
+#### API CALL
+
+https://user-images.githubusercontent.com/61123877/197269801-39c74f97-817e-47cc-adf6-cf9ef028980d.mp4
+
+#### LOADING
+
+https://user-images.githubusercontent.com/61123877/197269942-f1f8825f-7a07-4b93-9dd1-ef37df5c536f.mp4
+
+#### ERROR
+
+https://user-images.githubusercontent.com/61123877/197269969-4e8e80f4-9656-4ed9-b770-c815e8aa3237.mp4
 
 ## Running
 In order to have all the dependencies run:<br>
