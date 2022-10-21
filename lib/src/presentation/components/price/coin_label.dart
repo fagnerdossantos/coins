@@ -12,7 +12,8 @@ class CoinLabel extends StatelessWidget {
     return Text(
       label,
       style: const TextStyle(
-        fontSize: 23,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
       ),
     );
   }

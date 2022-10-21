@@ -27,7 +27,15 @@ class LoadingPage extends StatelessWidget {
             SizedBox(
               height: 50,
             ),
-            Text("Olá! Já estamos requisitando a API"),
+            Text(
+              "Olá! Já estamos requisitando a API",
+              style: TextStyle(
+                color: blue,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),

@@ -12,7 +12,7 @@ class APICallController {
     final controller = context.read<APIController>();
     await controller.fetch();
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     return controller.response;
   }

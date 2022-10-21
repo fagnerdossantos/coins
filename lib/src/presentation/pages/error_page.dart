@@ -1,13 +1,17 @@
-import 'package:coins/src/logic/models/enum_pages.dart';
 import 'package:flutter/material.dart';
 
+import 'package:coins/src/logic/models/enum_pages.dart';
 import 'package:coins/src/presentation/components/button/reload_button.dart';
+import 'package:coins/utils/consts.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Error message
+    const String errorMessage =
+        "Poxa! Algo saiu errado.\nVerifique sua conexão com a internet e tente novamente.";
     return Scaffold(
       body: SizedBox(
         // Size
@@ -17,10 +21,12 @@ class ErrorPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
-              """
-            Poxa! Algo saiu errado.
-            Verifique sua conexão com a internet e tente novamente.
-            """,
+              errorMessage,
+              style: TextStyle(
+                color: red,
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             SizedBox(

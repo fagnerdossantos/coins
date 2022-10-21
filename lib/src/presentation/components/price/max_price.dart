@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:coins/src/logic/models/enum_coins.dart';
 import 'package:coins/src/api/controllers/api_controller.dart';
+import 'package:coins/src/logic/models/enum_coins.dart';
 import 'package:coins/utils/consts.dart';
 
 class MaxMinPrice extends StatelessWidget {
@@ -24,19 +24,29 @@ class MaxMinPrice extends StatelessWidget {
     final CoinResponse coin = controller[key];
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        const Text(
-          "Máxima",
-          style: TextStyle(
-            fontSize: 22,
+        // Give Some Space
+        const Expanded(
+          flex: 1,
+          child: SizedBox(),
+        ),
+
+        Expanded(
+          flex: 1,
+          child: Text(
+            "Máxima",
+            style: defaultStyle,
           ),
         ),
-        Text(
-          coin["high"],
-          style: const TextStyle(
-            fontSize: 22,
-            color: Colors.green,
+
+        Expanded(
+          flex: 1,
+          child: Text(
+            coin["high"],
+            style: const TextStyle(
+              fontSize: 22,
+              color: Colors.green,
+            ),
           ),
         ),
       ],

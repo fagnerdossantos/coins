@@ -29,9 +29,9 @@ class MobileHomePage extends StatelessWidget {
     return Scaffold(
       // App Bar
       appBar: AppBar(
-        title: const Text("AppBar"),
+        title: const Text("Cotação"),
         centerTitle: true,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: blueGrey,
       ),
 
       // App Body

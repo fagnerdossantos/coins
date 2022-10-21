@@ -1,10 +1,9 @@
 import 'package:flutter/widgets.dart';
 
 // Colors
-const Color black = Color.fromARGB(255, 0, 0, 0);
-const Color white = Color.fromARGB(255, 255, 255, 255);
 const Color blue = Color.fromARGB(255, 68, 138, 255);
 const Color blueGrey = Color.fromARGB(255, 96, 125, 139);
+const Color red = Color.fromARGB(255, 255, 0, 0);
 
 // Radius
 final BorderRadius radius = BorderRadius.circular(20);
@@ -14,8 +13,8 @@ typedef CoinResponse = Map<String, dynamic>;
 typedef ApiMap = Map<String, dynamic>;
 
 // TestStile
-TextStyle priceStyle = const TextStyle(
-  color: white,
+TextStyle defaultStyle = const TextStyle(
+  fontSize: 24,
   fontWeight: FontWeight.bold,
 );
 

@@ -18,6 +18,7 @@ class FlagImage extends StatelessWidget {
           initials,
           style: const TextStyle(
             fontSize: 22,
+            fontWeight: FontWeight.bold,
           ),
         ),
 
