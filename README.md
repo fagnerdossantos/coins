@@ -1,5 +1,8 @@
 > in development...
 
+# Link para Versão 2
+https://github.com/fagnerdossantos/coins/tree/second
+
 # Coins
  A currency quote app where you can check the price of the main currencies on the market.
 
