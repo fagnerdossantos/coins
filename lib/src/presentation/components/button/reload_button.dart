@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:coins/src/api/controllers/api_controller.dart';
 import 'package:coins/src/logic/models/enum_pages.dart';
+import 'package:coins/utils/consts.dart';
 
 class ReloadButton extends StatelessWidget {
   final EnumPages page;
@@ -15,6 +16,10 @@ class ReloadButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      //Style
+      backgroundColor: white,
+      splashColor: deepPurple,
+      // Action
       onPressed: () async {
         switch (page) {
           case EnumPages.homePage:
@@ -28,7 +33,10 @@ class ReloadButton extends StatelessWidget {
           default:
         }
       },
-      child: const Icon(Icons.replay_outlined),
+      child: const Icon(
+        Icons.replay_outlined,
+        color: deepPurple,
+      ),
     );
   }
 }

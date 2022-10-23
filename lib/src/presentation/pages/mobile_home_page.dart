@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-
-import 'package:coins/src/api/controllers/api_controller.dart';
 import 'package:coins/src/logic/models/enum_coins.dart';
 import 'package:coins/src/logic/models/enum_pages.dart';
 import 'package:coins/src/presentation/components/button/reload_button.dart';
-import 'package:coins/src/presentation/components/image/flag_image.dart';
 import 'package:coins/src/presentation/components/layout/coins_builder.dart';
-import 'package:coins/src/presentation/components/price/coin_label.dart';
-import 'package:coins/src/presentation/components/price/max_price.dart';
-import 'package:coins/src/presentation/components/price/min_price.dart';
-import 'package:coins/src/presentation/components/price/price_box.dart';
+import 'package:coins/src/presentation/components/layout/label.dart';
 import 'package:coins/utils/consts.dart';
 
 class MobileHomePage extends StatelessWidget {
@@ -25,25 +18,22 @@ class MobileHomePage extends StatelessWidget {
     final double width = size.width;
 
     // Controllers
-    final controller = context.read<APIController>().response;
-    const enumList = EnumCoins.values;
+    // final controller = context.read<APIController>().response;
+    // Enum coins length
 
     return Scaffold(
       // BackGround color
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: deepPurple,
+
       // App Bar
       appBar: AppBar(
         title: const Text(
           "Cotação",
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: textAppBarStyle,
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: deepPurple,
       ),
 
       // App Body
@@ -56,7 +46,7 @@ class MobileHomePage extends StatelessWidget {
               "Principais moedas do mercado",
               style: TextStyle(
                 fontSize: 18,
-                color: Colors.white,
+                color: white,
               ),
             ),
           ),
@@ -68,13 +58,10 @@ class MobileHomePage extends StatelessWidget {
             child: DecoratedBox(
               decoration: const BoxDecoration(
                 // Color
-                color: Colors.white,
+                color: white,
 
                 // Shape
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
-                ),
+                borderRadius: radiusHome,
               ),
 
               //
@@ -84,42 +71,32 @@ class MobileHomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Row 1
-                    const Text(
-                      "Moedas",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: blueGrey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    // Row fiat
+                    const Label(text: "Moedas", color: blueGrey),
                     SizedBox(
                       // Size
                       height: 180,
                       width: width,
 
-                      child: const CoinsBuilder(),
+                      child: const CoinsBuilder(
+                        fiatOrCrypto: FiatOrCrypto.fiat,
+                      ),
                     ),
 
                     SizedBox(
                       height: height * .1,
                     ),
 
-                    // Row 1
-                    const Text(
-                      "Criptomoedas",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: blueGrey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    // Row Crypto
+                    const Label(text: "Criptomoedas", color: blueGrey),
                     SizedBox(
                       // Size
                       height: 180,
                       width: width,
 
-                      child: const CoinsBuilder(),
+                      child: const CoinsBuilder(
+                        fiatOrCrypto: FiatOrCrypto.cripto,
+                      ),
                     )
                   ],
                 ),

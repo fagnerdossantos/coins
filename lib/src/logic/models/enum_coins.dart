@@ -1,3 +1,8 @@
+enum FiatOrCrypto {
+  fiat,
+  cripto;
+}
+
 enum EnumCoins {
   /// Dont use the comma inside the last string;
 

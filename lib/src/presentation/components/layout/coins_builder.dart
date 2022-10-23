@@ -1,28 +1,42 @@
 import 'package:flutter/material.dart';
 
+import 'package:coins/src/logic/models/enum_coins.dart';
+import 'package:coins/src/presentation/components/layout/coin_boxe.dart';
+
 class CoinsBuilder extends StatelessWidget {
-  const CoinsBuilder({super.key});
+  final FiatOrCrypto fiatOrCrypto;
+  const CoinsBuilder({
+    Key? key,
+    required this.fiatOrCrypto,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: SizedBox(
-              width: 170,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  // Color
-                  color: Colors.deepPurple,
+    //
+    bool notCripto = (fiatOrCrypto == FiatOrCrypto.fiat ? true : false);
+    final int len = EnumCoins.values.length - 2;
+    const List<EnumCoins> coinslist = EnumCoins.values;
 
-                  // Shape
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-          );
-        });
+    // Building list
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: notCripto ? len : 2,
+      itemBuilder: (context, index) {
+        // Give Some padding btween boxes
+        return notCripto
+            ? CoinBox(
+                index: index,
+                len: len,
+                notCripto: notCripto,
+                coinslist: coinslist,
+              )
+            : CoinBox(
+                index: index,
+                len: len,
+                notCripto: notCripto,
+                coinslist: coinslist,
+              );
+      },
+    );
   }
 }
