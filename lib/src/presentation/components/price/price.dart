@@ -16,7 +16,7 @@ class Price extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Controllers
-    final CoinResponse controller = context.watch<APIController>().response;
+    final CoinResponse controller = context.watch<APIControllerImp>().response;
     const enumList = EnumCoins.values;
 
     // Coin

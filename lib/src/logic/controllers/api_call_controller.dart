@@ -9,7 +9,7 @@ class APICallController {
   // Call the API
   Future<CoinResponse> apiCall(BuildContext context) async {
     // Controller
-    final controller = context.read<APIController>();
+    final controller = context.read<APIControllerImp>();
     await controller.fetch();
 
     await Future.delayed(const Duration(seconds: 1));

@@ -5,16 +5,25 @@ import 'package:coins/src/api/controllers/api_controller.dart';
 import 'package:coins/src/api/models/api_model.dart';
 import 'package:coins/src/logic/controllers/api_call_controller.dart';
 
-List<SingleChildWidget> providers = [
+final List<SingleChildWidget> providers = [
+  // Models
   Provider(
-    create: (_) => APIModel(),
+    create: (_) => APIModelImp(),
   ),
+
+  // ! Local API for testing purpose
+  Provider(
+    create: (_) => FakeAPIModelImp(),
+  ),
+
+  // Controllers
   Provider(
     create: (_) => APICallController(),
   ),
+
   ChangeNotifierProvider(
-    create: (context) => APIController(
-      context.read<APIModel>(),
+    create: (context) => APIControllerImp(
+      context.read<FakeAPIModelImp>(),
     ),
   )
 ];

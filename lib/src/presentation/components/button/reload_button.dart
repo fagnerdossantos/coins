@@ -24,7 +24,7 @@ class ReloadButton extends StatelessWidget {
         switch (page) {
           case EnumPages.homePage:
             // Controller
-            await context.read<APIController>().fetch();
+            await context.read<APIControllerImp>().fetch();
             break;
 
           case EnumPages.errorPage:

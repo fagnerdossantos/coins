@@ -1,13 +1,15 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:coins/src/logic/models/enum_coins.dart';
 import 'package:coins/src/api/models/api_model.dart';
+import 'package:coins/src/logic/models/enum_coins.dart';
 import 'package:coins/utils/consts.dart';
 
-class APIController extends ChangeNotifier {
+abstract class APIController {}
+
+class APIControllerImp extends ChangeNotifier {
   // Dependencie
   final APIModel _model;
-  APIController(this._model);
+  APIControllerImp(this._model);
 
   CoinResponse response = {};
 
