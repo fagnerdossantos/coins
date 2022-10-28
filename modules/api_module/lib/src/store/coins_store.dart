@@ -1,13 +1,15 @@
 import 'package:flutter/widgets.dart';
 
+import 'package:api_module/src/interfaces/coins_store_interface.dart';
 import 'package:api_module/src/models/coins_model.dart';
 import 'package:api_module/src/utils/enum_coins.dart';
 import 'package:api_module/src/utils/types.dart';
 
-class CoinsStore extends ChangeNotifier {
+class CoinsStore extends ChangeNotifier implements CoinsStoreInterface {
   final List<CoinsModel> _coins = [];
   List<CoinsModel> get coins => _coins;
 
+  @override
   void add({required APIResponse map}) {
     // Clear the list every call
     if (_coins.isNotEmpty) _coins.clear();

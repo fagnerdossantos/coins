@@ -14,6 +14,9 @@ dependencies:
   plugin_platform_interface: ^2.0.2
   core_module:
     path: ../core_module
+  api_module:
+    path: ../api_module
+
 
 dev_dependencies:
   flutter_test:

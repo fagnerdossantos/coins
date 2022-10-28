@@ -12,6 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
+  api_module:
+    path: ../api_module
+
+  home_module:
+    path: ../home_module
+  
 
 dev_dependencies:
   flutter_test:

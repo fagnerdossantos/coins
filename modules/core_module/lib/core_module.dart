@@ -1,14 +1,6 @@
-// You have generated a new plugin project without specifying the `--platforms`
-// flag. A plugin project with no platform support was generated. To add a
-// platform, run `flutter create -t plugin --platforms <platforms> .` under the
-// same directory. You can also find a detailed instruction on how to add
-// platforms in the `pubspec.yaml` at
-// https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+library core_module;
 
-import 'core_module_platform_interface.dart';
-
-class CoreModule {
-  Future<String?> getPlatformVersion() {
-    return CoreModulePlatform.instance.getPlatformVersion();
-  }
-}
+export 'package:core_module/src/components/price/price.dart';
+export 'package:core_module/src/components/price/price_box.dart';
+export 'package:core_module/src/components/price/price_box_builder.dart';
+export 'package:core_module/src/components/labels/region_label.dart';
