@@ -13,7 +13,6 @@ class RegionLabel extends StatelessWidget {
         style: const TextStyle(
           fontSize: 20,
           color: Colors.blueGrey,
-          
         ),
         textAlign: TextAlign.center,
       ),

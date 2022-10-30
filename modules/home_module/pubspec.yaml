@@ -16,6 +16,7 @@ dependencies:
     path: ../core_module
   api_module:
     path: ../api_module
+  provider: ^6.0.4
 
 
 dev_dependencies:

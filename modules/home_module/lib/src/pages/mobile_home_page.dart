@@ -1,3 +1,4 @@
+import 'package:api_module/api_module.dart';
 import 'package:flutter/material.dart';
 
 import 'package:core_module/core_module.dart';
@@ -7,6 +8,7 @@ class MobileHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     // Get screen size
     final Size size = MediaQuery.of(context).size;
     final double height = size.height;
@@ -66,6 +68,7 @@ class MobileHomePage extends StatelessWidget {
                   ),
                   PriceBoxBuilder(
                     size: size,
+                    continent: Continent.america,
                   ),
 
                   const SizedBox(
@@ -78,6 +81,7 @@ class MobileHomePage extends StatelessWidget {
                   ),
                   PriceBoxBuilder(
                     size: size,
+                    continent: Continent.europe,
                   ),
 
                   const SizedBox(
@@ -90,6 +94,7 @@ class MobileHomePage extends StatelessWidget {
                   ),
                   PriceBoxBuilder(
                     size: size,
+                    continent: Continent.oceania,
                   ),
 
                   const SizedBox(
@@ -102,6 +107,7 @@ class MobileHomePage extends StatelessWidget {
                   ),
                   PriceBoxBuilder(
                     size: size,
+                    continent: Continent.asia,
                   ),
 
                   const SizedBox(
@@ -114,6 +120,7 @@ class MobileHomePage extends StatelessWidget {
                   ),
                   PriceBoxBuilder(
                     size: size,
+                    continent: Continent.africa,
                   ),
                 ],
               ),

@@ -42,11 +42,31 @@ class AppWidget extends StatelessWidget {
         initialRoute: "/",
 
         routes: {
-          "/": (context) => const MobileHomePage(),
+          "/": (context) => const HomeBuilder(),
         },
 
         debugShowCheckedModeBanner: false,
       ),
+    );
+  }
+}
+
+class HomeBuilder extends StatelessWidget {
+  const HomeBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: context.read<ConnectionRepository>().hasData(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return const MobileHomePage();
+        }
+
+        return Container(
+          color: Colors.blue,
+        );
+      },
     );
   }
 }

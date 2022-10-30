@@ -10,9 +10,10 @@ class ConnectionRepository implements ConnectionInterface {
   ConnectionRepository(this._connection, this._data);
 
   @override
-  Future<bool> hasData() async {
+  Future<APIResponse> hasData() async {
     final APIResponse map = await _connection.fetch();
     _data.add(map: map);
-    return true;
+
+    return map;
   }
 }

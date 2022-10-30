@@ -1,3 +1,5 @@
+import 'package:api_module/src/utils/types.dart';
+
 abstract class ConnectionInterface {
-  Future<bool> hasData();
+  Future<APIResponse> hasData();
 }
