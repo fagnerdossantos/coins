@@ -15,7 +15,6 @@ class PriceBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     /// Get the coins from list
     final List<CoinsModel> coinList = _regionSet(context, continent);
     final CoinsModel coin = coinList[index];
@@ -23,6 +22,7 @@ class PriceBox extends StatelessWidget {
     // Coin stats
     final key = coin.key;
     final price = coin.price;
+    final image = coin.flag;
 
     return Card(
       // Style
@@ -42,7 +42,15 @@ class PriceBox extends StatelessWidget {
           height: 160,
           width: 160,
 
-          child: Text("$index -> $key  $price"),
+          child: Column(
+            children: [
+              Text("$index -> $key  $price"),
+              // Expanded(
+              //   child: Image(image: AssetImage(image)),
+              // ),
+              Text(image),
+            ],
+          ),
         ),
       ),
     );

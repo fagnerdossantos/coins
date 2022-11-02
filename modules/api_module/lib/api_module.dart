@@ -2,6 +2,7 @@ library api_module;
 
 // Interfaces
 export 'package:api_module/src/interfaces/api_controller_interface.dart';
+export 'package:api_module/src/interfaces/image_convert_interface.dart';
 export 'package:api_module/src/interfaces/api_model_interface.dart';
 export 'package:api_module/src/interfaces/coins_store_interface.dart';
 export 'package:api_module/src/interfaces/connection_interface.dart';
@@ -12,6 +13,7 @@ export 'package:api_module/src/models/coins_model.dart';
 
 // Controllers
 export 'package:api_module/src/controllers/api_controller.dart';
+export 'package:api_module/src/controllers/image_convert_controller.dart';
 
 // Repositories
 export 'package:api_module/src/repositories/connection_repository.dart';

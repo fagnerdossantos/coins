@@ -12,8 +12,10 @@ class APIController implements APIControllerInterface {
   Future<APIResponse> fetch() async {
     String coins = "";
 
-    for (EnumCoins value in EnumCoins.values) {
-      coins += value.label;
+    for (var iterable in continentsList) {
+      for (var value in iterable) {
+        coins += value.label;
+      }
     }
 
     final APIResponse response = await _model.fetch(coins: coins);

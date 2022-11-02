@@ -29,8 +29,6 @@ class CoinsStore extends ChangeNotifier implements CoinsStoreInterface {
 
     // Clear the list every call
     _clearLists();
-    
-    int index = 0;
 
     for (var value in map.values) {
       String initial = value["initial"];
@@ -38,9 +36,10 @@ class CoinsStore extends ChangeNotifier implements CoinsStoreInterface {
       // Coin
       final model = CoinsModel(
         key: value["code"],
-        flag: EnumCoins.values[index].img,
+        flag: value["image"],
         price: value["bid"],
       );
+      print(model.flag);
 
       switch (initial) {
         case "AF":
@@ -63,18 +62,21 @@ class CoinsStore extends ChangeNotifier implements CoinsStoreInterface {
           _oceania.add(model);
           break;
       }
-
-      index++;
     }
     notifyListeners();
   }
 
   void _findCoinContinent(APIResponse map) {
-    for (EnumCoins value in EnumCoins.values) {
-      final String initial = value.initial;
-      final String key = value.label.replaceAll("-", "").replaceAll(",", "");
-      final coin = map[key];
-      coin["initial"] = initial;
+    for (var iterable in continentsList) {
+      for (var value in iterable) {
+        final String initial = value.continent;
+        final String key = value.label.replaceAll("-", "").replaceAll(",", "");
+        final coin = map[key];
+        coin["initial"] = initial;
+        coin["image"] = value.image;
+        //coin["image"] = "assets/images/us.png";
+
+      }
     }
   }
 
