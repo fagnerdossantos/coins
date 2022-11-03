@@ -2,16 +2,17 @@ import 'dart:convert';
 
 import 'package:coins/src/api/interfaces/api_model_interface.dart';
 import 'package:coins/utils/consts.dart';
-import "package:http/http.dart" as http;
+import 'package:http/http.dart' as http;
 
-class APIModel implements APIModelInterface {
+
+class APIMockModel implements APIModelInterface {
   // Url Target
-  final String _target = "https://economia.awesomeapi.com.br/json/last/";
+  final String _target = "http://127.0.0.1:8000";
 
   @override
   Future<APIResponse> fetch({required String coins}) async {
     // Final url
-    final Uri url = Uri.parse(_target + coins);
+    final Uri url = Uri.parse(_target);
 
     try {
       // Requesting final
