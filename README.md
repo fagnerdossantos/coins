@@ -1,9 +1,4 @@
-> in development...
-
-# Link para Versão 2
-https://github.com/fagnerdossantos/coins/tree/second
-
-# Coins
+# Coins V3
  A currency quote app where you can check the price of the main currencies on the market.
 
 ### Market Coins
@@ -47,3 +42,8 @@ In order to have all the dependencies run:<br>
 ## Specs
 Made using **Flutter** <br>
 Using Package: **Provider**
+
+Versions
+
+# Link para Versão 2
+https://github.com/fagnerdossantos/coins/tree/second
