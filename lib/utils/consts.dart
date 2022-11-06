@@ -7,9 +7,9 @@ const Color blueGrey = Color.fromARGB(255, 96, 125, 139);
 const Color red = Color.fromARGB(255, 255, 0, 0);
 
 // TestStile
-TextStyle labelStyleText(Color color) => TextStyle(
+TextStyle labelStyleText(Color color, double fontSize) => TextStyle(
       color: color,
-      fontSize: 22,
+      fontSize: fontSize,
       fontWeight: FontWeight.bold,
     );
 

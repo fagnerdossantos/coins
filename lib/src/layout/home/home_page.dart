@@ -1,8 +1,12 @@
-import 'package:coins/src/api/helpers/continents_helper.dart';
+import 'package:flutter/material.dart';
+
+import 'package:coins/src/helpers/continents_helper.dart';
+import 'package:coins/src/helpers/pages_helper.dart';
+import 'package:coins/src/layout/components/buttons/reload_button.dart';
+import 'package:coins/src/layout/components/labels/labels.dart';
 import 'package:coins/src/layout/components/labels/region_label.dart';
 import 'package:coins/src/layout/components/price/price_box_builder.dart';
 import 'package:coins/utils/consts.dart';
-import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,6 +18,15 @@ class HomePage extends StatelessWidget {
     final double height = size.height;
     final double width = size.width;
 
+    // Regions List (Label, enum)
+    const List<dynamic> regionList = [
+      ["América", Continents.america],
+      ["Europa", Continents.europe],
+      ["Oceania", Continents.oceania],
+      ["Ásia", Continents.asia],
+      ["ÁFRICA", Continents.africa],
+    ];
+
     return Scaffold(
       // BackGround color
       backgroundColor: deepPurple,
@@ -21,7 +34,7 @@ class HomePage extends StatelessWidget {
       // App Bar
       appBar: AppBar(
         title: const Text(
-          "Cotação",
+          "Cotação de Moedas",
         ),
         centerTitle: true,
         elevation: 0,
@@ -34,12 +47,10 @@ class HomePage extends StatelessWidget {
         children: [
           // Home Label
           const Expanded(
-            child: Text(
-              "Principais moedas do mercado",
-              style: TextStyle(
-                fontSize: 18,
-                color: white,
-              ),
+            child: Labels(
+              color: white,
+              fontSize: 16,
+              text: "Principais moedas de cada continente",
             ),
           ),
 
@@ -62,71 +73,29 @@ class HomePage extends StatelessWidget {
 
               child: ListView(
                 children: [
-                  // AMERICA (CONTINENT)
-                  const RegionLabel(
-                    label: "América",
-                  ),
-                  PriceBoxBuilder(
-                    size: size,
-                    continent: Continents.america,
-                  ),
+                  for (var list in regionList) ...[
+                    // Region
+                    RegionLabel(label: list[0]),
 
-                  const SizedBox(
-                    height: 20,
-                  ),
+                    // Price
+                    PriceBoxBuilder(
+                      size: size,
+                      continent: list[1],
+                    ),
 
-                  // EUROPE
-                  const RegionLabel(
-                    label: "Europa",
-                  ),
-                  PriceBoxBuilder(
-                    size: size,
-                    continent: Continents.europe,
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-
-                  // OCEANIA
-                  const RegionLabel(
-                    label: "Oceania",
-                  ),
-                  PriceBoxBuilder(
-                    size: size,
-                    continent: Continents.oceania,
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-
-                  // ASIA
-                  const RegionLabel(
-                    label: "Ásia",
-                  ),
-                  PriceBoxBuilder(
-                    size: size,
-                    continent: Continents.asia,
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-
-                  // AFRICA
-                  const RegionLabel(
-                    label: "ÁFRICA",
-                  ),
-                  PriceBoxBuilder(
-                    size: size,
-                    continent: Continents.africa,
-                  ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                  ]
                 ],
               ),
             ),
           ),
         ],
+      ),
+
+      floatingActionButton: const ReloadButton(
+        page: Pages.home,
       ),
     );
   }

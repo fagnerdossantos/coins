@@ -1,9 +1,10 @@
-import 'package:coins/src/api/helpers/coins_helper.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+import 'package:coins/src/helpers/coins_helper.dart';
 import 'package:coins/src/api/interfaces/coins_store_interface.dart';
 import 'package:coins/src/api/models/coins_model.dart';
 import 'package:coins/utils/consts.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CoinsStore extends ChangeNotifier implements CoinsStoreInterface {
   final List<CoinsModel> _africa = [];

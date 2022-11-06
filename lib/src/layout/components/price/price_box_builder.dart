@@ -1,8 +1,10 @@
-import 'package:coins/src/api/helpers/continents_helper.dart';
-import 'package:coins/src/database/coins_store.dart';
-import 'package:coins/src/layout/components/price/price_box.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+
+import 'package:coins/src/database/coins_store.dart';
+import 'package:coins/src/helpers/continents_helper.dart';
+import 'package:coins/src/layout/components/price/price_box.dart';
 
 class PriceBoxBuilder extends StatelessWidget {
   final Continents continent;
@@ -41,15 +43,20 @@ class PriceBoxBuilder extends StatelessWidget {
 int _verifylenth(BuildContext context, Continents continent) {
   final controller = context.read<CoinsStore>();
 
-  if (continent == Continents.africa) {
-    return controller.africa.length;
-  } else if (continent == Continents.america) {
-    return controller.america.length;
-  } else if (continent == Continents.asia) {
-    return controller.asia.length;
-  } else if (continent == Continents.europe) {
-    return controller.europe.length;
-  } else {
-    return controller.oceania.length;
+  switch (continent) {
+    case Continents.africa:
+      return controller.africa.length;
+
+    case Continents.america:
+      return controller.america.length;
+
+    case Continents.asia:
+      return controller.asia.length;
+
+    case Continents.europe:
+      return controller.europe.length;
+
+    case Continents.oceania:
+      return controller.oceania.length;
   }
 }

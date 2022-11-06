@@ -1,4 +1,4 @@
-import 'package:coins/src/api/helpers/coins_helper.dart';
+import 'package:coins/src/helpers/coins_helper.dart';
 import 'package:coins/src/layout/components/images/flags.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
+
+import 'package:coins/src/helpers/pages_helper.dart';
+import 'package:coins/src/layout/components/buttons/reload_button.dart';
 import 'package:coins/src/layout/components/images/flag_builder.dart';
 import 'package:coins/src/layout/components/labels/labels.dart';
 import 'package:coins/utils/consts.dart';
-import 'package:flutter/material.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({
@@ -34,6 +37,9 @@ class ErrorPage extends StatelessWidget {
             child: FlagBuilder(),
           ),
         ],
+      ),
+      floatingActionButton: const ReloadButton(
+        page: Pages.error,
       ),
     );
   }

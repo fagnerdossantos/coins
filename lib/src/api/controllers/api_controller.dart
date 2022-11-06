@@ -1,8 +1,8 @@
 
 
-import 'package:coins/src/api/helpers/coins_helper.dart';
 import 'package:coins/src/api/interfaces/api_controller_interface.dart';
 import 'package:coins/src/api/interfaces/api_model_interface.dart';
+import 'package:coins/src/helpers/coins_helper.dart';
 import 'package:coins/utils/consts.dart';
 
 class APIController implements APIControllerInterface {
