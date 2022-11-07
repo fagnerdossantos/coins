@@ -4,6 +4,7 @@ import 'package:coins/src/helpers/pages_helper.dart';
 import 'package:coins/src/layout/components/buttons/reload_button.dart';
 import 'package:coins/src/layout/components/images/flag_builder.dart';
 import 'package:coins/src/layout/components/labels/labels.dart';
+import 'package:coins/src/logic/models/pages_model.dart';
 import 'package:coins/utils/consts.dart';
 
 class ErrorPage extends StatelessWidget {
@@ -13,8 +14,21 @@ class ErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    // Get screen size
+    final Size size = MediaQuery.of(context).size;
+
+    return PagesModel(
+      // Size
+      size: size,
+
+      floatingActionButton: const ReloadButton(
+        page: Pages.error,
+      ),
+
+      label: "Erro",
+
+      // Content
+      child: Column(
         children: const [
           Expanded(
             flex: 1,
@@ -37,9 +51,6 @@ class ErrorPage extends StatelessWidget {
             child: FlagBuilder(),
           ),
         ],
-      ),
-      floatingActionButton: const ReloadButton(
-        page: Pages.error,
       ),
     );
   }

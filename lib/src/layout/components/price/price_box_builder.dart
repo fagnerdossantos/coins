@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-
-import 'package:coins/src/database/coins_store.dart';
 import 'package:coins/src/helpers/continents_helper.dart';
 import 'package:coins/src/layout/components/price/price_box.dart';
+import 'package:coins/src/logic/models/price_region_model.dart';
 
 class PriceBoxBuilder extends StatelessWidget {
   final Continents continent;
@@ -15,7 +13,11 @@ class PriceBoxBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Verify Length
-    final int len = _verifylenth(context, continent);
+    final regionModel = PriceRegionModel()
+      ..context = context
+      ..continent = continent;
+
+    final int len = regionModel.continentListLength();
 
     return SizedBox(
       // Size
@@ -29,34 +31,22 @@ class PriceBoxBuilder extends StatelessWidget {
         // Builder
         itemCount: len,
         itemBuilder: (_, index) {
-          return PriceBox(
-            continent: continent,
-            index: index,
-            size: size,
+          return GestureDetector(
+            // Action
+            onTap: () {
+              final List data = [index, continent];
+              Navigator.pushNamed(context, "/coindetail", arguments: data);
+            },
+
+            // Content
+            child: PriceBox(
+              continent: continent,
+              index: index,
+              size: size,
+            ),
           );
         },
       ),
     );
-  }
-}
-
-int _verifylenth(BuildContext context, Continents continent) {
-  final controller = context.read<CoinsStore>();
-
-  switch (continent) {
-    case Continents.africa:
-      return controller.africa.length;
-
-    case Continents.america:
-      return controller.america.length;
-
-    case Continents.asia:
-      return controller.asia.length;
-
-    case Continents.europe:
-      return controller.europe.length;
-
-    case Continents.oceania:
-      return controller.oceania.length;
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:coins/src/helpers/coins_helper.dart';
 import 'package:coins/src/api/interfaces/coins_store_interface.dart';
 import 'package:coins/src/api/models/coins_model.dart';
+import 'package:coins/src/helpers/coins_helper.dart';
 import 'package:coins/utils/consts.dart';
 
 class CoinsStore extends ChangeNotifier implements CoinsStoreInterface {
@@ -36,8 +36,11 @@ class CoinsStore extends ChangeNotifier implements CoinsStoreInterface {
       // Coin
       final model = CoinsModel(
         key: value["name"],
+        code: value["code"],
         flag: value["image"],
         price: value["bid"],
+        high: value["high"],
+        low: value["low"],
       );
 
       switch (initial) {

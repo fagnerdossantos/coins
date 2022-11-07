@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
-
 import 'package:coins/src/api/models/coins_model.dart';
-import 'package:coins/src/database/coins_store.dart';
 import 'package:coins/src/helpers/continents_helper.dart';
 import 'package:coins/src/layout/components/global/card_box.dart';
-import 'package:coins/src/layout/components/global/expanded_space.dart';
+import 'package:coins/src/logic/models/price_region_model.dart';
+import 'package:coins/utils/consts.dart';
 
 class PriceBox extends StatelessWidget {
   final Continents continent;
@@ -21,73 +19,43 @@ class PriceBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// Get the coins from list
-    final List<CoinsModel> coinList = _regionSet(context, continent);
-    final CoinsModel coin = coinList[index];
+    /// Get the coins
+    final regionModel = PriceRegionModel()
+      ..context = context
+      ..continent = continent;
+
+    final CoinsModel coin = regionModel.coinModelGet(index: index);
 
     // Coin stats
-    final String key = coin.key.replaceAll("/Real Brasileiro", "");
+    final String country = coin.key.replaceAll("/Real Brasileiro", "");
     final String price = double.parse(coin.price).toStringAsFixed(2);
-    final String image = coin.flag;
+    final String countryFlag = coin.flag;
 
     return CardBox(
       child: Column(
+        // Alignment
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
         children: [
-          // Give Some space
-          const ExpandedSpace(),
-
           // Coin name
-          Expanded(
-            flex: 1,
-            child: Text(key),
+          Text(
+            country,
+            style: labelStyleText(white, 17),
+            textAlign: TextAlign.center,
           ),
-
-          // Give Some space
-          const ExpandedSpace(),
 
           // Flag
-          Expanded(
-            flex: 5,
-            child: Image(
-              image: AssetImage(image),
-            ),
+          Image(
+            image: AssetImage(countryFlag),
           ),
-
-          // Give Some space
-          const ExpandedSpace(),
 
           // Price in BRL
-          Expanded(
-            flex: 1,
-            child: Text("R\$ $price"),
+          Text(
+            "R\$ $price",
+            style: labelStyleText(white, 17),
           ),
-
-          // Give Some space
-          const ExpandedSpace(),
         ],
       ),
     );
-  }
-}
-
-List<CoinsModel> _regionSet(BuildContext context, Continents continent) {
-  // Coin Controller
-  final controller = context.watch<CoinsStore>();
-
-  switch (continent) {
-    case Continents.africa:
-      return controller.africa;
-
-    case Continents.america:
-      return controller.america;
-
-    case Continents.asia:
-      return controller.asia;
-
-    case Continents.europe:
-      return controller.europe;
-
-    case Continents.oceania:
-      return controller.oceania;
   }
 }

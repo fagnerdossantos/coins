@@ -1,10 +1,11 @@
-import 'package:coins/src/layout/error/error_page.dart';
-import 'package:coins/src/layout/loading/loading_page.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 import 'package:coins/src/api/repositories/connection_repository.dart';
+import 'package:coins/src/layout/error/error_page.dart';
 import 'package:coins/src/layout/home/home_page.dart';
+import 'package:coins/src/layout/loading/loading_page.dart';
 import 'package:coins/utils/consts.dart';
 
 class HomeBuilder extends StatelessWidget {

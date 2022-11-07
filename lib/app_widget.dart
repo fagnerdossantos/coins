@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
+import 'package:coins/src/layout/details/coin_detail.dart';
 import 'package:coins/src/logic/home_builder.dart';
 import 'package:coins/src/providers/providers.dart';
 
@@ -17,7 +18,8 @@ class AppWidget extends StatelessWidget {
         initialRoute: "/",
 
         routes: {
-          "/": (context) => const HomeBuilder(),
+          "/": (_) => const HomeBuilder(),
+          "/coindetail": (_) => const CoinDetail(),
         },
 
         debugShowCheckedModeBanner: false,
