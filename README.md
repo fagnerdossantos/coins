@@ -1,4 +1,4 @@
-# Coins V3
+# Coins V1.1
  A currency quote app where you can check the price of the main currencies on the market.
 
 ### Market Coins
@@ -33,5 +33,5 @@ Using Package: **Provider**
 
 Versions
 
-### Link para Versão anterior (v2)
+### Link para Versão anterior (v1)
 https://github.com/fagnerdossantos/coins/tree/second
