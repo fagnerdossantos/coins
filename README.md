@@ -1,3 +1,4 @@
+[![wakatime](https://wakatime.com/badge/github/fagnerdossantos/coins.svg)](https://wakatime.com/badge/github/fagnerdossantos/coins)
 # Coins V1.1
  A currency quote app where you can check the price of the main currencies on the market.
 
