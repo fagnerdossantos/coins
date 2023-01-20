@@ -1,5 +1,5 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/widgets.dart';
-
 import 'package:provider/provider.dart';
 
 import 'package:coins/src/api/models/coins_model.dart';
@@ -8,19 +8,20 @@ import 'package:coins/src/helpers/continents_helper.dart';
 
 class PriceRegionModel {
   // Properties
-  late BuildContext _context;
-  late Continents _continent;
+  final BuildContext context;
+  final Continents continent;
 
-  // Setters
-  set context(BuildContext ctx) => _context = ctx;
-  set continent(Continents continent) => _continent = continent;
+  PriceRegionModel({
+    required this.context,
+    required this.continent,
+  });
 
   /// Return a CoinModel based in the given [index]
   CoinsModel coinModelGet({required int index}) {
     // Coin Controller
-    final controller = _context.watch<CoinsStore>();
+    final controller = context.watch<CoinsStore>();
 
-    switch (_continent) {
+    switch (continent) {
       case Continents.africa:
         return controller.africa[index];
 
@@ -39,9 +40,9 @@ class PriceRegionModel {
   }
 
   int continentListLength() {
-    final controller = _context.read<CoinsStore>();
+    final controller = context.read<CoinsStore>();
 
-    switch (_continent) {
+    switch (continent) {
       case Continents.africa:
         return controller.africa.length;
 

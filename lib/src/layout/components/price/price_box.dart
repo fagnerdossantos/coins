@@ -20,9 +20,10 @@ class PriceBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// Get the coins
-    final regionModel = PriceRegionModel()
-      ..context = context
-      ..continent = continent;
+    final regionModel = PriceRegionModel(
+      context: context,
+      continent: continent,
+    );
 
     final CoinsModel coin = regionModel.coinModelGet(index: index);
 

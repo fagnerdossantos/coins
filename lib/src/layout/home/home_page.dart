@@ -14,45 +14,31 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen size
-    final Size size = MediaQuery.of(context).size;
-
-    // Regions List (Label, enum)
-    const List<dynamic> regionList = [
-      ["América", Continents.america],
-      ["Europa", Continents.europe],
-      ["Oceania", Continents.oceania],
-      ["Ásia", Continents.asia],
-      ["ÁFRICA", Continents.africa],
+    final size = MediaQuery.of(context).size;
+    final regionList = [
+      Region("América", Continents.america),
+      Region("Europa", Continents.europe),
+      Region("Oceania", Continents.oceania),
+      Region("Ásia", Continents.asia),
+      Region("ÁFRICA", Continents.africa),
     ];
 
     return PagesModel(
       size: size,
-
-      // AppBar
       appBar: appBarBuilder(
         title: "Cotação de Moedas",
         color: deepPurple,
       ),
-
       floatingActionButton: const ReloadButton(page: Pages.home),
-
-      // Screen Label
       label: "Principais moedas de cada continente",
-
-      // Body
       child: ListView(
         children: [
-          for (var list in regionList) ...[
-            // Region
-            RegionLabel(label: list[0]),
-
-            // Price
+          for (var region in regionList) ...[
+            RegionLabel(label: region.name),
             PriceBoxBuilder(
               size: size,
-              continent: list[1],
+              continent: region.continent,
             ),
-
             const SizedBox(
               height: 20,
             ),
@@ -61,4 +47,10 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+class Region {
+  final String name;
+  final Continents continent;
+  Region(this.name, this.continent);
 }

@@ -15,9 +15,10 @@ class CoinDetail extends StatelessWidget {
     final data = ModalRoute.of(context)!.settings.arguments as List;
 
     /// Get the coins from list
-    final priceRegionModel = PriceRegionModel()
-      ..context = context
-      ..continent = data[1];
+    final priceRegionModel = PriceRegionModel(
+      context: context,
+      continent: data[1],
+    );
 
     final CoinsModel coin = priceRegionModel.coinModelGet(index: data[0]);
 
