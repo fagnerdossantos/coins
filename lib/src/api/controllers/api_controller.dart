@@ -1,7 +1,4 @@
-
-
-import 'package:coins/src/api/interfaces/api_controller_interface.dart';
-import 'package:coins/src/api/interfaces/api_model_interface.dart';
+import 'package:coins/src/api/interfaces/api_interfaces.dart';
 import 'package:coins/src/helpers/coins_helper.dart';
 import 'package:coins/utils/consts.dart';
 
@@ -14,13 +11,14 @@ class APIController implements APIControllerInterface {
   Future<APIResponse> fetch() async {
     String coins = "";
 
-    for (var iterable in continentsList) {
-      for (var value in iterable) {
-        coins += value.label;
-      }
+    for (var continent in Continents.values) {
+      coins += getCountriesByContinent(continent)
+          .map((country) => country[0])
+          .join();
     }
 
     final APIResponse response = await _model.fetch(coins: coins);
+
     return response;
   }
 }

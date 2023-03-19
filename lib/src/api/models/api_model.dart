@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:coins/src/api/interfaces/api_model_interface.dart';
+import 'package:coins/src/api/interfaces/api_interfaces.dart';
 import 'package:coins/utils/consts.dart';
-import "package:http/http.dart" as http;
+
+import 'package:http/http.dart' as http;
 
 class APIModel implements APIModelInterface {
   // Url Target
@@ -21,7 +22,7 @@ class APIModel implements APIModelInterface {
           ? jsonDecode(utf8.decode(response.bodyBytes))
           : {"error": true};
     } catch (error) {
-      return {"error": true};
+      return {"error": error};
     }
   }
 }

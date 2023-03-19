@@ -1,10 +1,8 @@
+import 'package:coins/src/app/home/pages/home_builder.dart';
+import 'package:coins/src/providers/app_providers.dart';
+import 'package:coins/src/themes/theme_class.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
-
-import 'package:coins/src/layout/details/coin_detail.dart';
-import 'package:coins/src/logic/home_builder.dart';
-import 'package:coins/src/providers/providers.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -12,16 +10,16 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: providers,
+      // APP providers
+      providers: providersList,
+
       child: MaterialApp(
-        // Routs
-        initialRoute: "/",
+        home: const HomeBuilder(),
 
-        routes: {
-          "/": (_) => const HomeBuilder(),
-          "/coindetail": (_) => const CoinDetail(),
-        },
+        // Them
+        theme: ThemeClass().theme,
 
+        // banner false
         debugShowCheckedModeBanner: false,
       ),
     );

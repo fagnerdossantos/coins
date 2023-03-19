@@ -1,4 +1,0 @@
-enum Pages {
-  home,
-  error;
-}
