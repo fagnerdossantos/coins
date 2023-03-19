@@ -1,38 +1,40 @@
 [![wakatime](https://wakatime.com/badge/github/fagnerdossantos/coins.svg)](https://wakatime.com/badge/github/fagnerdossantos/coins)
-# Coins V1.1
- A currency quote app where you can check the price of the main currencies on the market.
+# Coins
 
-### Market Coins
+Coins is an application that allows you to check the real-time exchange rates of different currencies. It offers a simple and intuitive interface for the user to quickly check the current value of the main currencies on the market.
 
-- Dolar (US, canadian, Australian and New Zealander)
-- EURO
-- Peso (Argentine, Mexican and Chilean)
-- Pound (UK)
-- Swiss Franc
-- Russian Ruble
-- Renminbi (China)
-- Iene (Japan)
-- Dirham (United Arab Emirates)
-- South African Rand
+## Available Currencies
+
+-   Dollar (USA, Canada, Australia, and New Zealand)
+-   Euro
+-   Peso (Argentina, Mexico, and Chile)
+-   Pound (United Kingdom)
+-   Swiss Franc
+-   Russian Ruble
+-   Renminbi (China)
+-   Yen (Japan)
+-   Dirham (United Arab Emirates)
+-   South African Rand
+
+## Features
+
+-   Check real-time exchange rates of major currencies.
+-   User-triggered value update.
+-   Easy navigation between currencies.
+
+## Technologies Used
+
+-   Flutter Framework
+-   Provider for dependency injection
+-   Bloc for state management
 
 ## Videos
 > Galaxy A52s
 
-https://user-images.githubusercontent.com/61123877/200391006-98f38b0c-4607-4b80-83bd-85d4d076023e.mp4
 
 > ERROR
 
-https://user-images.githubusercontent.com/61123877/200391200-16329d1a-a747-410a-8036-c543f9d76c56.mp4
 
 ## Running
 In order to have all the dependencies run:<br>
 ``` flutter pub get```
-
-## Specs
-Made using **Flutter** <br>
-Using Package: **Provider**
-
-Versions
-
-### Link para Versão anterior (v1)
-https://github.com/fagnerdossantos/coins/tree/second
