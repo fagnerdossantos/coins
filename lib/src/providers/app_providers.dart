@@ -13,7 +13,7 @@ List<SingleChildWidget> providersList = [
   Provider(create: (_) => APIMockModel()), // !
 
   // Controllers
-  Provider(create: (context) => APIController(context.read<APIMockModel>())),
+  Provider(create: (context) => APIController(context.read<APIModel>())),
 
   // Helpers
   Provider(create: (_) => AccessCoinsHelper()),

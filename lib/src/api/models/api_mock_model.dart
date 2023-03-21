@@ -8,7 +8,7 @@ class APIMockModel implements APIModelInterface {
   Future<APIResponse> fetch({required String coins}) async {
     return await Future.delayed(
         const Duration(
-          seconds: 0,
+          seconds: 1,
         ),
         () => jsonDecode(data));
   }

@@ -1,5 +1,6 @@
 import 'package:coins/src/app/bloc/coins_bloc.dart';
 import 'package:coins/src/app/home/pages/home_page.dart';
+import 'package:coins/src/app/load/pages/load_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,21 +11,24 @@ class HomeBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     final blocController = BlocProvider.of<CoinsBloc>(context);
 
-    blocController.add(FetchCoinPriceEvent());
+    blocController.add(FetchCoinEvent());
 
     return BlocBuilder<CoinsBloc, CoinsBlocState>(
       builder: (context, state) {
         // Load
-        if (state is CoinsBlocLoadState) {
+        if (state is CoinsLoadState) {
           // Loading
-          return const CircularProgressIndicator();
+          return const LoadPage();
 
-          // Success
-        } else if (state is CoinsBlocSuccessState) {
-          return const HomePage();
+          // Success or Filtered
+        } else if (state is CoinsSuccessState ||
+            state is CoinsFilteredState) {
+          return HomePage(
+            state: state,
+          );
         }
 
-        return const HomePage();
+        return Container();
       },
     );
   }

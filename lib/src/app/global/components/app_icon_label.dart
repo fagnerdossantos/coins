@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomePriceIcon extends StatelessWidget {
-  const HomePriceIcon({super.key});
+class AppIconLabel extends StatelessWidget {
+  const AppIconLabel({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,14 +3,14 @@ List<List<String>> getCountriesByContinent(Continents continent) {
 }
 
 enum Continents {
-  america(initials: "AM"),
-  africa(initials: "AF"),
-  asia(initials: "AS"),
-  europe(initials: "EU"),
-  oceania(initials: "OC");
+  america(initials: "AM", name: "America"),
+  africa(initials: "AF", name: "Africa"),
+  asia(initials: "AS", name: "Asia"),
+  europe(initials: "EU", name: "Europe"),
+  oceania(initials: "OC", name: "Oceania");
 
-  final String initials;
-  const Continents({required this.initials});
+  final String initials, name;
+  const Continents({required this.initials, required this.name});
 }
 
 final Map<Continents, List<List<String>>> _continents = {

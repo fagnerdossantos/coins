@@ -3,63 +3,35 @@ import 'package:coins/src/app/bloc/coins_bloc.dart';
 import 'package:coins/src/app/price/components/flag_coin_image.dart';
 import 'package:coins/src/app/price/components/price_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PriceBuilder extends StatelessWidget {
   final Size size;
-  const PriceBuilder({super.key, required this.size});
+  final CoinsBlocState state;
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<CoinsBloc, CoinsBlocState>(
-      builder: (_, state) {
-        // All Coins List
-        if (state is CoinsBlocSuccessState) {
-          // Box to place content
-          return AllPriceBoxes(
-            size: size,
-            modelList: state.coinsList,
-          );
-        } else if (state is CoinsFilterBlocState) {
-          return AllPriceBoxes(
-            size: size,
-            modelList: state.coinsList,
-          );
-        } else {
-          return const SizedBox();
-        }
-      },
-    );
-  }
-}
-
-class AllPriceBoxes extends StatelessWidget {
-  final Size size;
-  final List<CoinsModel> modelList;
-
-  const AllPriceBoxes({super.key, required this.size, required this.modelList});
+  const PriceBuilder({super.key, required this.size, required this.state});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       //
-      itemCount: modelList.length,
-      scrollDirection: Axis.horizontal,
+      itemCount: state.coinsList.length,
+      scrollDirection: Axis.vertical,
 
       itemBuilder: (_, index) {
         // Final model
-        final CoinsModel model = modelList[index];
+        final CoinsModel model = state.coinsList[index];
 
-        return Stack(
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Price
-            PriceBox(
-              model: model,
-            ),
-
             // County flag
             FlagCoinImage(
               image: model.flag,
+            ),
+
+            // Price
+            PriceBox(
+              model: model,
             ),
           ],
         );

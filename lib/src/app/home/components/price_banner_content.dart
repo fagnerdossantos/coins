@@ -1,24 +1,27 @@
+import 'package:coins/src/api/models/coins_model.dart';
+import 'package:coins/src/app/bloc/coins_bloc.dart';
 import 'package:coins/src/app/global/components/max_min_badge.dart';
-import 'package:coins/src/app/home/components/home_price_icon.dart';
+import 'package:coins/src/app/global/components/app_icon_label.dart';
 import 'package:flutter/material.dart';
 
-class HomePriceContent extends StatelessWidget {
-  const HomePriceContent({super.key});
+class PriceBannerContent extends StatelessWidget {
+  final CoinsBlocState state;
+  const PriceBannerContent({super.key, required this.state});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      // Alignment
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    // Coin
+    final CoinsModel model = state.coinsList[0];
 
+    return ListView(
       children: [
         // Icon and name row
-        const HomePriceIcon(),
+        const AppIconLabel(),
 
         Row(
           children: [
             Text(
-              "Dólar em Reais ",
+              "${model.name.split("/")[0]} em Reais ",
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
@@ -35,7 +38,7 @@ class HomePriceContent extends StatelessWidget {
               ),
             ),
             Text(
-              "5,27 ",
+              double.tryParse(model.price)!.toStringAsFixed(2),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
@@ -47,16 +50,16 @@ class HomePriceContent extends StatelessWidget {
           children: [
             Column(
               children: [
-                // MIN Badge
+                // Max Badge
                 const MaxMinBadge(isMax: true),
 
                 const SizedBox(
                   height: 5,
                 ),
 
-                // MIN price
+                // Max price
                 Text(
-                  "R\$ 5,27",
+                  double.tryParse(model.high)!.toStringAsFixed(2),
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
               ],
@@ -66,19 +69,19 @@ class HomePriceContent extends StatelessWidget {
               width: 15,
             ),
 
-            // Min
+            // MIN
             Column(
               children: [
-                // MAX badge
+                // Min badge
                 const MaxMinBadge(isMax: false),
 
                 const SizedBox(
                   height: 5,
                 ),
 
-                // MAX price
+                // Min price
                 Text(
-                  "R\$ 5,27",
+                  double.tryParse(model.low)!.toStringAsFixed(2),
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
               ],

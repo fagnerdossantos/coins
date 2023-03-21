@@ -1,3 +1,4 @@
+import 'package:coins/utils/consts.dart';
 import 'package:flutter/material.dart';
 
 class FlagCoinImage extends StatelessWidget {
@@ -10,7 +11,7 @@ class FlagCoinImage extends StatelessWidget {
       height: 45,
       width: 70,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: circularRadius,
         child: Image(
           image: AssetImage(image),
           fit: BoxFit.cover,

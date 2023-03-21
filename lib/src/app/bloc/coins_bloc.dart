@@ -14,23 +14,31 @@ class CoinsBloc extends Bloc<CoinsBlocEvent, CoinsBlocState> {
   final APIControllerInterface _controller;
   final _helper = AccessCoinsHelper();
 
-  CoinsBloc(this._controller) : super(CoinsBlocInitialState(coinsList: [])) {
-    on<FetchCoinPriceEvent>((event, emit) async {
+  CoinsBloc(this._controller) : super(CoinsInitialState(coinsList: [])) {
+    on<FetchCoinEvent>((event, emit) async {
       // Loading
-      emit(CoinsBlocLoadState(coinsList: []));
+      emit(CoinsLoadState(coinsList: []));
 
       final APIResponse data = await _controller.fetch();
 
       // Caching
       APICacheController.setCache = data;
 
-      emit(CoinsBlocSuccessState(
+      emit(CoinsSuccessState(
           coinsList: _helper.addCoinInfoHelper(coinMap: data)));
     });
 
-    on<FilterCoinPriceEvent>((event, emit) {
+    // Used to show all coins when it is stored in cache
+    on<AllCoinsEvent>((event, emit) {
+      // Getting teh cache
+      final APIResponse cache = APICacheController.cache;
 
-      emit(CoinsFilterBlocState(
+      emit(CoinsSuccessState(
+          coinsList: _helper.addCoinInfoHelper(coinMap: cache)));
+    });
+
+    on<FilterCoinEvent>((event, emit) {
+      emit(CoinsFilteredState(
           coinsList: _helper.filteredCountryList(continent: event.continent)));
     });
   }

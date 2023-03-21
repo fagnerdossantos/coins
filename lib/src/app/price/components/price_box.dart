@@ -1,4 +1,7 @@
 import 'package:coins/src/api/models/coins_model.dart';
+import 'package:coins/src/app/global/components/rounded_card.dart';
+import 'package:coins/src/app/price/components/price_box_content.dart';
+import 'package:coins/utils/consts.dart';
 import 'package:flutter/material.dart';
 
 class PriceBox extends StatelessWidget {
@@ -7,54 +10,33 @@ class PriceBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 20,
-        ),
-        Card(
-          // Elevation
-          elevation: 3,
+    return RoundedCard(
+      child: SizedBox(
+        // Size
+        width: 250,
 
-          color: Colors.black.withOpacity(0.9),
+        child: Container(
+          // Styling
+          decoration: BoxDecoration(
+            // Gradient
+            gradient: LinearGradient(
+              colors: priceBoxGradient,
 
-          // Rounded Shape
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
-
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(30),
-
-            //
-            child: SizedBox(
-              // Size
-              width: 280,
-
-              child: Column(
-                // Alignment
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-                children: [
-                  // Price
-                  Text(
-                    "R\$ ${double.parse(model.price).toStringAsFixed(2)}",
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-
-                  // Country Name
-                  Text(
-                    model.name.replaceAll("/Real Brasileiro", ""),
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ],
-              ),
+              // Gradient Align
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              transform: const GradientRotation(1.3),
             ),
+
+            // Shape
+            borderRadius: circularRadius,
+          ),
+
+          child: PriceBoxContent(
+            model: model,
           ),
         ),
-      ],
+      ),
     );
   }
 }

@@ -8,18 +8,18 @@ abstract class CoinsBlocState {
   });
 }
 
-class CoinsBlocInitialState extends CoinsBlocState {
-  CoinsBlocInitialState({required super.coinsList});
+class CoinsInitialState extends CoinsBlocState {
+  CoinsInitialState({required super.coinsList});
 }
 
-class CoinsBlocLoadState extends CoinsBlocState {
-  CoinsBlocLoadState({required super.coinsList});
+class CoinsLoadState extends CoinsBlocState {
+  CoinsLoadState({required super.coinsList});
 }
 
-class CoinsBlocSuccessState extends CoinsBlocState {
-  CoinsBlocSuccessState({required super.coinsList});
+class CoinsSuccessState extends CoinsBlocState {
+  CoinsSuccessState({required super.coinsList});
 }
 
-class CoinsFilterBlocState extends CoinsBlocState {
-  CoinsFilterBlocState({required super.coinsList});
+class CoinsFilteredState extends CoinsBlocState {
+  CoinsFilteredState({required super.coinsList});
 }

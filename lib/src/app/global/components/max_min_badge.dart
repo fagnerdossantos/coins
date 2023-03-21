@@ -1,3 +1,4 @@
+import 'package:coins/utils/consts.dart';
 import 'package:flutter/material.dart';
 
 class MaxMinBadge extends StatelessWidget {
@@ -12,10 +13,8 @@ class MaxMinBadge extends StatelessWidget {
 
       // Styling
       decoration: BoxDecoration(
-        color: isMax ? Colors.red : Colors.green,
-        borderRadius: BorderRadius.circular(
-          20,
-        ),
+        color: isMax ? red : green,
+        borderRadius: circularRadius,
       ),
 
       child: Row(
