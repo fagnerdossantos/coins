@@ -2,6 +2,7 @@ import 'package:coins/src/api/models/coins_model.dart';
 import 'package:coins/src/app/bloc/coins_bloc.dart';
 import 'package:coins/src/app/global/components/max_min_badge.dart';
 import 'package:coins/src/app/global/components/app_icon_label.dart';
+import 'package:coins/utils/consts.dart';
 import 'package:flutter/material.dart';
 
 class PriceBannerContent extends StatelessWidget {
@@ -53,9 +54,7 @@ class PriceBannerContent extends StatelessWidget {
                 // Max Badge
                 const MaxMinBadge(isMax: true),
 
-                const SizedBox(
-                  height: 5,
-                ),
+                const VerticalSpace(height: 5),
 
                 // Max price
                 Text(
@@ -65,9 +64,7 @@ class PriceBannerContent extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(
-              width: 15,
-            ),
+            const HorizontalSpace(width: 15),
 
             // MIN
             Column(
@@ -75,9 +72,7 @@ class PriceBannerContent extends StatelessWidget {
                 // Min badge
                 const MaxMinBadge(isMax: false),
 
-                const SizedBox(
-                  height: 5,
-                ),
+                const VerticalSpace(height: 5),
 
                 // Min price
                 Text(

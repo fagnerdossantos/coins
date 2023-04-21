@@ -25,8 +25,8 @@ class PriceBuilder extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // County flag
-            FlagCoinImage(
-              image: model.flag,
+            FlagImage(
+              path: model.flag,
             ),
 
             // Price

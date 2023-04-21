@@ -2,7 +2,7 @@ import 'package:coins/src/app/bloc/coins_bloc.dart';
 import 'package:coins/src/app/global/components/continent_box.dart';
 import 'package:coins/src/app/global/components/refresh_button.dart';
 import 'package:coins/src/app/home/components/price_banner_box.dart';
-import 'package:coins/src/app/price/components/price_builder.dart';
+import 'package:coins/src/app/price/widgets/price_builder.dart';
 import 'package:coins/utils/consts.dart';
 import 'package:flutter/material.dart';
 
@@ -38,9 +38,7 @@ class HomePage extends StatelessWidget {
                 state: state,
               ),
 
-              SizedBox(
-                height: height * .01,
-              ),
+              VerticalSpace(height: height * .01),
 
               // Continents
               SizedBox(
@@ -63,9 +61,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(
-                height: height * .05,
-              ),
+              VerticalSpace(height: height * .05),
 
               //
               Expanded(
