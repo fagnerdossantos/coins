@@ -37,7 +37,33 @@ https://user-images.githubusercontent.com/61123877/233726444-4ba9e79f-70ce-4157-
 > ERROR
 > coming soon...
 
+## Getting Started
 
-## Running
-In order to have all the dependencies run:<br>
-``` flutter pub get```
+To run the app on your local machine, follow these steps:
+
+### Prerequisites
+
+-   Flutter SDK
+-   Android Studio or Visual Studio Code with Flutter extension installed
+
+### Installation
+
+1.  Clone the repository to your local machine:
+
+`git clone https://github.com/fagnerdossantos/coins` 
+
+2.  Navigate to the project directory:
+
+`cd coins` 
+
+1.  Install the dependencies:
+
+`flutter pub get` 
+
+4.  Run the app:
+
+`flutter run`
+
+## Contributing
+
+This project is open to contributions and improvements. If you would like to contribute, simply submit a pull request.
