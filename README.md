@@ -30,7 +30,8 @@ Coins is an application that allows you to check the real-time exchange rates of
 
 ## Videos
 > Galaxy A52s
-> coming soon...
+
+https://user-images.githubusercontent.com/61123877/233726444-4ba9e79f-70ce-4157-8e84-90ab34ec92ba.mp4
 
 
 > ERROR
