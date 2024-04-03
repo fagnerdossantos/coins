@@ -1,23 +1,31 @@
-import 'package:coins/src/app/home/widgets/home_builder.dart';
-import 'package:coins/src/providers/app_providers.dart';
-import 'package:coins/src/themes/theme_class.dart';
+import 'package:coins/src/layout/about/views/about_view.dart';
+import 'package:coins/src/utils/custom_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' show MultiProvider;
+
+import 'src/layout/home/views/home_view_builder.dart';
+import 'src/providers/app_provider.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Providers
     return MultiProvider(
-      // APP providers
-      providers: providersList,
+      //
+      providers: appProvider,
 
       child: MaterialApp(
-        home: const HomeBuilder(),
+        //
+        theme: CustomTheme.theme,
 
-        // Them
-        theme: ThemeClass().theme,
+        initialRoute: '/',
+
+        routes: {
+          '/': (_) => const HomeViewBuilder(),
+          '/about': (_) => const AboutView(),
+        },
 
         // banner false
         debugShowCheckedModeBanner: false,
