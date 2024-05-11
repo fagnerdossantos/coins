@@ -1,8 +1,12 @@
-{
+final class InternCoins {
+  static Map<String, Map<String, dynamic>> get coins => _coins;
+}
+
+const Map<String, Map<String, dynamic>> _coins = {
   "Criptomoedas": {
     "BTC": "btc.png",
     "ETH": "eth.png",
-    "XRP": "xrp.png"
+    "XRP": "xrp.png",
   },
   "América": {
     "USD": "united-states.png",
@@ -13,9 +17,7 @@
     "PYG": "paraguay.png",
     "UYU": "uruguay.png"
   },
-  "África": {
-    "ZAR": "south-africa.png"
-  },
+  "África": {"ZAR": "south-africa.png"},
   "Europa": {
     "EUR": "eu.png",
     "GBP": "uk.png",
@@ -32,8 +34,5 @@
     "HKD": "hong-kong.png",
     "SGD": "singapore.png"
   },
-  "Oceania": {
-    "AUD": "australia.png",
-    "NZD": "new-zealand.png"
-  }
-}
+  "Oceania": {"AUD": "australia.png", "NZD": "new-zealand.png"}
+};

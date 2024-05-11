@@ -1,6 +1,6 @@
 import '../models/coin.dart';
 
-class CurrencyConverter {
+final class CurrencyConverter {
   //Result: Value in REAL and conversed to target
   static (double valInReal, double targetVal) convertCrypto(
       {required Coin crypto, required Coin target}) {

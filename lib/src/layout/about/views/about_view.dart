@@ -1,8 +1,11 @@
+import 'package:coins/src/layout/about/components/about_view_flag.dart';
 import 'package:coins/src/layout/global/components/price/arrow_price_indicator.dart';
 import 'package:coins/src/logic/controllers/currency_formatter.dart';
 import 'package:coins/src/logic/models/coin.dart';
 import 'package:coins/src/utils/utils.dart';
 import 'package:flutter/material.dart';
+
+import '../components/about_view_app_bar.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
@@ -14,34 +17,28 @@ class AboutView extends StatelessWidget {
 
     //Formatter
     final CurrencyFormatter formatter = CurrencyFormatter();
-    final bool priceSmall = (coin.price < 1);
-
-    final String price = priceSmall
-        ? coin.price.toStringAsFixed(4).replaceAll(".", ",")
-        : formatter(coin.price);
+    final String currentPrice = formatter(coin.price);
+    final String smallPrice = formatter(coin.low);
+    final String hightPrice = formatter(coin.high);
 
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: AppBar(
-        title: Text(coin.name.replaceAll("/Real Brasileiro", "")),
-        centerTitle: true,
-        backgroundColor: red.withOpacity(.5),
+      appBar: AboutViewAppBar(
+        data: coin,
       ),
-      body: SizedBox(
-        width: double.infinity,
-
+      body: SizedBox.expand(
         // !
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // Image
-            Image(image: AssetImage("assets/images/${coin.imagePath}")),
+            AboutViewFlag(image: coin.imagePath),
 
             // Price
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("R\$ $price"),
+                Text("R\$ $currentPrice"),
                 const HorizontalSpace(width: 20),
                 ArrowPriceIndicator(
                   current: coin.price,
@@ -51,14 +48,6 @@ class AboutView extends StatelessWidget {
                 ),
               ],
             ),
-
-            // Stats
-            // Text(
-            //   "Statisticas",
-            //   style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            //         color: black.withOpacity(.6),
-            //       ),
-            // ),
 
             Column(
               children: [
@@ -73,7 +62,7 @@ class AboutView extends StatelessWidget {
                 ),
 
                 Text(
-                  "R\$ $price",
+                  "R\$ $hightPrice",
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: black.withOpacity(
                           .8,
@@ -93,55 +82,12 @@ class AboutView extends StatelessWidget {
                 ),
 
                 Text(
-                  "R\$ $price",
+                  "R\$ $smallPrice",
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: black.withOpacity(
                           .8,
                         ),
                       ),
-                ),
-              ],
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                // Dollar
-                Column(
-                  children: [
-                    const Image(
-                      image: AssetImage("assets/images/united-states.png"),
-                      height: 50,
-                    ),
-                    const VerticalSpace(height: 10),
-                    Text(
-                      "\$ ${formatter(coin.price)}",
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            color: black.withOpacity(
-                              .8,
-                            ),
-                          ),
-                    ),
-                  ],
-                ),
-
-                // Eur
-                Column(
-                  children: [
-                    const Image(
-                      image: AssetImage("assets/images/eu.png"),
-                      height: 50,
-                    ),
-                    const VerticalSpace(height: 10),
-                    Text(
-                      "€ ${formatter(coin.price)}",
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            color: black.withOpacity(
-                              .8,
-                            ),
-                          ),
-                    ),
-                  ],
                 ),
               ],
             ),

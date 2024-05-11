@@ -27,7 +27,6 @@ class CoinInitials extends StatelessWidget {
         ),
 
         ArrowPriceIndicator(
-          // current: double.parse(model.price),
           current: model.price,
           min: model.low,
           max: model.high,

@@ -1,3 +1,4 @@
+import 'package:coins/src/providers/app_provider.dart';
 import 'package:flutter/material.dart'
     show
         Axis,
@@ -7,7 +8,6 @@ import 'package:flutter/material.dart'
         SizedBox,
         StatelessWidget,
         Widget;
-import 'package:provider/provider.dart' show ReadContext;
 
 import '../../../logic/bloc/coins_bloc.dart';
 import 'continent_box.dart';
@@ -38,7 +38,7 @@ class ContinentBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
-    final CoinsBloc bloc = context.read<CoinsBloc>();
+    final CoinsBloc bloc = getIt<CoinsBloc>();
 
     return SizedBox(
       // Sizing

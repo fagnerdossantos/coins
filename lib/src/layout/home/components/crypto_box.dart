@@ -27,15 +27,13 @@ class CryptoPriceBox extends StatelessWidget {
     final CurrencyFormatter formatter = CurrencyFormatter();
 
     return Card(
-      //
-      elevation: 3,
-
       child: Container(
         // Sizing
         height: 200,
         width: 180,
 
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -19,6 +19,10 @@ final class CoinsFiltered extends CoinsState {
   const CoinsFiltered({required super.coins});
 }
 
+final class CoinsLoading extends CoinsState {
+  const CoinsLoading({required super.coins});
+}
+
 final class CoinsConverter extends CoinsState {
   final (double, double) conversed;
   const CoinsConverter({required super.coins, required this.conversed});

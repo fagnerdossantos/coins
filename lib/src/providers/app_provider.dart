@@ -1,50 +1,42 @@
-import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
-import 'package:provider/single_child_widget.dart' show SingleChildWidget;
+import 'package:coins/src/logic/repositories/coins_cache.dart';
+import 'package:get_it/get_it.dart';
 
-import 'package:provider/provider.dart' show Provider, ReadContext;
-
+import '../logic/api/models/api_model.dart';
 import '../logic/bloc/coins_bloc.dart';
 import '../logic/controllers/coins_list_viewmodel.dart';
 import '../logic/api/controllers/api_controller.dart';
 import '../logic/api/mocks/mock_api.dart';
 import '../logic/repositories/coins_repo.dart';
-import '../logic/intern_usage/load_json_in.dart';
 
-List<SingleChildWidget> appProvider = [
-  // Json
-  Provider(create: (_) => LoadJsonIn()),
+final GetIt getIt = GetIt.instance;
 
-  // Models
-  Provider(create: (_) => APIMockModel()), // ! MOCK
-  // Provider(create: (_) => APIModel()),
+class AppInstancies {
+  /// Used to register the instancies
+  void register() {
+    // Models
+    getIt.registerSingleton<APIMockModel>(APIMockModel());
+    getIt.registerSingleton<APIModel>(APIModel());
 
-  // Controllers
-  Provider(
-    create: (context) => APIController(
-      context.read<APIMockModel>(), // !
-      context.read<LoadJsonIn>(),
-    ),
-  ),
+    // Controllers
+    getIt.registerLazySingleton<APIController>(
+      () => APIController(getIt<APIModel>()),
+    );
 
-  // Repositories
-  Provider(
-    create: (context) => CoinsRepo(
-      context.read<APIController>(),
-      context.read<LoadJsonIn>(),
-    ),
-  ),
+    // Repositories
+    getIt.registerLazySingleton(
+      () => CoinsRepo(getIt<APIController>()),
+    );
 
-  // ViewModels
-  Provider(
-    create: (context) => CoinListViewModel(
-      context.read<CoinsRepo>(),
-    ),
-  ),
+    getIt.registerLazySingleton(() => CoinsCache());
 
-  // Blocs
-  BlocProvider(
-    create: (context) => CoinsBloc(
-      context.read<CoinListViewModel>(),
-    ),
-  ),
-];
+    // ViewModels
+    getIt.registerLazySingleton<CoinListViewModel>(
+      () => CoinListViewModel(getIt<CoinsRepo>(), getIt<CoinsCache>()),
+    );
+
+    // Blocs
+    getIt.registerSingleton<CoinsBloc>(
+      CoinsBloc(getIt<CoinListViewModel>()),
+    );
+  }
+}

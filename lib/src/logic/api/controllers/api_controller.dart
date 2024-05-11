@@ -1,13 +1,12 @@
 import '../../../utils/types.dart';
-import '../../intern_usage/load_json_in.dart';
+import '../../intern_usage/intern_coins.dart';
 import '../interfaces/i_api_controller.dart';
 import '../interfaces/i_api_model.dart';
 
 class APIController implements IApiController {
   // Dependencies
   final IApiModel _model;
-  final LoadJsonIn _intern;
-  const APIController(this._model, this._intern);
+  const APIController(this._model);
 
   @override
   Future<APIResponse> fetch() async {
@@ -31,7 +30,7 @@ class APIController implements IApiController {
 
   String _getKeysWithBRLSuffix() {
     String keys = "";
-    for (APIResponse map in _intern.jsonMap.values) {
+    for (APIResponse map in InternCoins.coins.values) {
       keys += map.keys.map((e) => "$e-BRL").join(",");
       keys += ",";
     }

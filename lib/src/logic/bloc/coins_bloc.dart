@@ -16,7 +16,12 @@ class CoinsBloc extends Bloc<CoinsEvent, CoinsState> {
   CoinsBloc(this._data) : super(const CoinsInitial(coins: [])) {
     // LOAD
     on<LoadAll>((event, emit) async {
-      emit(CoinsLoaded(coins: await _data.loadAll()));
+      emit(const CoinsLoading(coins: []));
+
+      await Future.delayed(const Duration(milliseconds: 500));
+      final List<Coin> loaded = await _data.loadAll(fromCache: false);
+
+      emit(CoinsLoaded(coins: loaded));
     });
 
     // CONTINENT
@@ -33,11 +38,28 @@ class CoinsBloc extends Bloc<CoinsEvent, CoinsState> {
     // NAME
     on<CoinByName>(
       (event, emit) async {
-        emit(
-          CoinsFiltered(
-            coins: await _data.filteredByName(name: event.name),
-          ),
-        );
+        // Filtering
+        final List<Coin> crypto = (await _data.loadAll(fromCache: true))
+            .where(
+              (element) =>
+                  element.key == "BTC" ||
+                  element.key == "ETH" ||
+                  element.key == "XRP",
+            )
+            .toList();
+
+        final List<Coin> coinsByName =
+            await _data.filteredByName(name: event.name);
+
+        final List<Coin> filtered = [...crypto, ...coinsByName];
+
+        if (event.name.isEmpty) {
+          emit(CoinsLoaded(coins: await _data.loadAll(fromCache: true)));
+        } else {
+          emit(
+            CoinsFiltered(coins: filtered),
+          );
+        }
       },
     );
 

@@ -12,11 +12,7 @@ class CoinPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     //Formatter
     final CurrencyFormatter formatter = CurrencyFormatter();
-    final bool priceSmall = (model.price < 1);
-
-    final String price = priceSmall
-        ? model.price.toStringAsFixed(4).replaceAll(".", ",")
-        : formatter(model.price);
+    final String price = formatter(model.price);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,

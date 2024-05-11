@@ -1,21 +1,6 @@
 import 'package:coins/src/logic/bloc/coins_bloc.dart';
-import 'package:flutter/material.dart'
-    show
-        BuildContext,
-        Column,
-        Divider,
-        EdgeInsets,
-        FloatingActionButton,
-        Icon,
-        Icons,
-        MediaQuery,
-        Padding,
-        SafeArea,
-        Scaffold,
-        SizedBox,
-        StatelessWidget,
-        Widget;
-import 'package:provider/provider.dart';
+import 'package:coins/src/providers/app_provider.dart';
+import 'package:flutter/material.dart';
 
 import '../../../logic/models/coin.dart';
 import '../../../utils/utils.dart' show backgroundColor;
@@ -55,6 +40,33 @@ class HomeView extends StatelessWidget {
                 ),
               ),
 
+              Container(
+                // Sizing
+                height: 50,
+                width: width,
+
+                padding: const EdgeInsets.only(left: 8),
+                margin: const EdgeInsets.all(2),
+
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(.9),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+
+                child: TextField(
+                  minLines: 1,
+                  cursorHeight: 15,
+                  style: const TextStyle(fontSize: 15),
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    icon: Icon(Icons.search),
+                    hintText: "search by name",
+                  ),
+                  onChanged: (name) =>
+                      getIt<CoinsBloc>().add(CoinByName(name: name)),
+                ),
+              ),
+
               const ContinentBuilder(),
 
               // Currencies
@@ -74,7 +86,7 @@ class HomeView extends StatelessWidget {
 
         //
         floatingActionButton: FloatingActionButton(
-          onPressed: () => context.read<CoinsBloc>().add(LoadAll()),
+          onPressed: () => getIt<CoinsBloc>().add(LoadAll()),
           child: const Icon(Icons.restart_alt),
         ),
       ),

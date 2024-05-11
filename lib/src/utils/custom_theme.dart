@@ -9,6 +9,8 @@ final class CustomTheme {
     // Material
     useMaterial3: true,
 
+    colorSchemeSeed: Colors.blueGrey,
+
     textTheme: ThemeFonts.textTheme,
   );
 }
