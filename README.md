@@ -5,16 +5,16 @@ Coins is an application that allows you to check the real-time exchange rates of
 
 ## Available Currencies
 
--   Dollar (USA, Canada, Australia, and New Zealand)
+-   Dollar (USA, Canada, Australia, singapore and New Zealand)
 -   Euro
--   Peso (Argentina, Mexico, and Chile)
+-   Peso (Argentina, Mexico, Chile, Paraguay and Uruguay)
 -   Pound (United Kingdom)
 -   Swiss Franc
--   Russian Ruble
 -   Renminbi (China)
 -   Yen (Japan)
 -   Dirham (United Arab Emirates)
 -   South African Rand
+-   and more ...
 
 ## Features
 
@@ -26,13 +26,10 @@ Coins is an application that allows you to check the real-time exchange rates of
 
 -   Flutter Framework
 -   Provider for dependency injection
--   Bloc for state management
+-   GetIt for state management
 
 ## Videos
-> Galaxy A52s
-
-https://user-images.githubusercontent.com/61123877/233726444-4ba9e79f-70ce-4157-8e84-90ab34ec92ba.mp4
-
+> needed!...
 
 > ERROR
 > coming soon...
