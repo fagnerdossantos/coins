@@ -1,27 +1,14 @@
+import 'package:coins/src/data/helpers/coins_helper.dart';
+
 import '../../configurations/types.dart';
-import '../datasources/load_file.dart';
 import '../models/coin_helper_model.dart';
 
 // ! Intern usage
 /// Used to load JSON and populate coins as helpers in API calls,
 /// normalizing coin models on initialization.
 class CoinsDataIntern {
-  CoinsDataIntern({required LoadFile loader, required String path})
-      : _loader = loader,
-        _path = path {
-    _init();
-  }
-
-  _init() => loadJson().then((_) => _loadCoins());
-
-  // FILE
-  final LoadFile _loader;
-  final String _path;
-
-  late final ({Map<String, dynamic>? data, bool error}) _json;
-
-  Future<void> loadJson() async {
-    _json = await _loader.json(_path);
+  CoinsDataIntern() {
+    _loadCoins();
   }
 
   // DATA
@@ -33,7 +20,7 @@ class CoinsDataIntern {
 
   Future<void> _loadCoins() async {
     //
-    final Map<String, dynamic> json = _json.data!;
+    final Map<String, dynamic> json = internCoins;
 
     for (String label in json.keys) {
       _labels.add(label);
