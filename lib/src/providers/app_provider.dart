@@ -1,42 +1,42 @@
-import 'package:coins/src/logic/repositories/coins_cache.dart';
 import 'package:get_it/get_it.dart';
 
-import '../logic/api/models/api_model.dart';
-import '../logic/bloc/coins_bloc.dart';
-import '../logic/controllers/coins_list_viewmodel.dart';
-import '../logic/api/controllers/api_controller.dart';
-import '../logic/api/mocks/mock_api.dart';
-import '../logic/repositories/coins_repo.dart';
+import '../contracts/coins_client_interface.dart';
+import '../data/datasources/coins_cache.dart';
+import '../data/datasources/coins_client_http.dart';
+import '../data/datasources/load_file.dart';
+import '../data/datasources/mock_client.dart';
+import '../data/helpers/coins_data_intern.dart';
+import '../data/repositories/coins_repository.dart';
 
 final GetIt getIt = GetIt.instance;
 
 class AppInstancies {
   /// Used to register the instancies
   void register() {
-    // Models
-    getIt.registerSingleton<APIMockModel>(APIMockModel());
-    getIt.registerSingleton<APIModel>(APIModel());
-
-    // Controllers
-    getIt.registerLazySingleton<APIController>(
-      () => APIController(getIt<APIModel>()),
+    // ! Intern usage
+    getIt.registerSingleton(
+      CoinsDataIntern(
+          loader: LoadFile(), path: "assets/json/coins_helper.json"),
     );
+
+    // Services
+    getIt.registerLazySingleton<CoinsClientInterface>(
+      () => MockClient(),
+      instanceName: "mock",
+    );
+
+    getIt.registerLazySingleton<CoinsClientInterface>(() => CoinsClientHttp());
 
     // Repositories
-    getIt.registerLazySingleton(
-      () => CoinsRepo(getIt<APIController>()),
-    );
+    getIt.registerSingleton(CoinsCache());
 
-    getIt.registerLazySingleton(() => CoinsCache());
-
-    // ViewModels
-    getIt.registerLazySingleton<CoinListViewModel>(
-      () => CoinListViewModel(getIt<CoinsRepo>(), getIt<CoinsCache>()),
-    );
-
-    // Blocs
-    getIt.registerSingleton<CoinsBloc>(
-      CoinsBloc(getIt<CoinListViewModel>()),
+    getIt.registerSingleton(
+      CoinsRepository(
+        coinsClient: getIt<CoinsClientInterface>(instanceName: "mock"),
+        // coinsClient: getIt<CoinsClientInterface>(),
+        helper: getIt<CoinsDataIntern>(),
+        cache: getIt<CoinsCache>(),
+      ),
     );
   }
 }

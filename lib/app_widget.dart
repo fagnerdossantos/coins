@@ -1,8 +1,8 @@
-import 'package:coins/src/layout/about/views/about_view.dart';
-import 'package:coins/src/utils/custom_theme.dart';
+import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/material.dart';
 
-import 'src/layout/home/views/home_view_builder.dart';
+import 'src/configurations/custom_theme.dart';
+import 'src/navigation/app_router.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -10,18 +10,18 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Providers
-    return MaterialApp(
+    return MaterialApp.router(
+      // Used for device preview
+      // ignore: deprecated_member_use
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+
       //
       theme: CustomTheme.theme,
 
-      initialRoute: '/',
+      routerConfig: AppRouter().router,
 
-      routes: {
-        '/': (_) => const HomeViewBuilder(),
-        '/about': (_) => const AboutView(),
-      },
-
-      // banner false
       debugShowCheckedModeBanner: false,
     );
   }

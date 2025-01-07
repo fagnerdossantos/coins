@@ -1,12 +1,19 @@
+import 'package:coins/src/providers/app_provider.dart';
+import 'package:device_preview_plus/device_preview_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coins/app_widget.dart';
-
-import 'src/providers/app_provider.dart';
 
 void main() {
   // Registering the instancies
   AppInstancies().register();
 
-  runApp(const AppWidget());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode, // !
+
+      builder: (_) => AppWidget(), // Wrap your app
+    ),
+  );
 }
