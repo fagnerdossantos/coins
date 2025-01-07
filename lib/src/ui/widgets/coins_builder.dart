@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart'
     show BuildContext, InkWell, ListView, StatelessWidget, Widget;
-import 'package:go_router/go_router.dart';
+
+import 'package:go_router/go_router.dart' show GoRouterHelper;
 
 import '../../data/models/coin.dart';
 import '../components/coin_row.dart';

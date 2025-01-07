@@ -1,5 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter/material.dart'
+    show
+        AssetImage,
+        BuildContext,
+        Column,
+        Image,
+        MainAxisAlignment,
+        Scaffold,
+        SizedBox,
+        StatelessWidget,
+        Text,
+        Theme,
+        Widget;
+
+import 'package:go_router/go_router.dart' show GoRouterState;
 
 import '../../configurations/colors.dart';
 import '../../data/models/coin.dart';

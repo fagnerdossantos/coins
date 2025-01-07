@@ -1,6 +1,25 @@
-import 'package:coins/src/configurations/utils.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        Align,
+        Alignment,
+        AssetImage,
+        BoxDecoration,
+        BoxFit,
+        BuildContext,
+        Center,
+        Color,
+        Container,
+        DecoratedBox,
+        DecorationImage,
+        SizedBox,
+        Stack,
+        StatelessWidget,
+        Text,
+        TextOverflow,
+        Theme,
+        Widget;
 
+import '../../configurations/colors.dart';
 import '../../data/models/coin.dart';
 import '../../domain/usecases/currency_formatter.dart';
 

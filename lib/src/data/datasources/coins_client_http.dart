@@ -1,8 +1,9 @@
-import 'dart:convert';
+import 'dart:convert' show jsonDecode;
 
-import 'package:coins/src/configurations/types.dart';
-import 'package:coins/src/contracts/coins_client_interface.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' show Response, get;
+
+import '../../configurations/types.dart';
+import '../../contracts/coins_client_interface.dart';
 
 class CoinsClientHttp implements CoinsClientInterface {
   //

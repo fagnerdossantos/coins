@@ -1,4 +1,3 @@
-import 'package:coins/src/configurations/colors.dart';
 import 'package:flutter/material.dart'
     show
         BoxConstraints,
@@ -8,6 +7,7 @@ import 'package:flutter/material.dart'
         StatelessWidget,
         Widget;
 
+import '../../configurations/colors.dart';
 import '../../data/models/coin.dart';
 import '../components/crypto_box.dart';
 

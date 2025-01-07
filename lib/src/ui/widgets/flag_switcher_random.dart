@@ -1,7 +1,18 @@
-import 'dart:async';
-import 'dart:math';
+import 'dart:async' show Timer;
+import 'dart:math' show Random;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        AnimatedSwitcher,
+        AssetImage,
+        BuildContext,
+        CircleAvatar,
+        FadeTransition,
+        State,
+        StatefulWidget,
+        ValueKey,
+        Widget,
+        Wrap;
 
 class FlagSwitcherAnimation extends StatefulWidget {
   const FlagSwitcherAnimation({super.key});

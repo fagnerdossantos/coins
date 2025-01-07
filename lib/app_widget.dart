@@ -1,5 +1,8 @@
-import 'package:device_preview_plus/device_preview_plus.dart';
-import 'package:flutter/material.dart';
+import 'package:device_preview_plus/device_preview_plus.dart'
+    show DevicePreview;
+
+import 'package:flutter/material.dart'
+    show BuildContext, MaterialApp, StatelessWidget, Widget;
 
 import 'src/configurations/custom_theme.dart';
 import 'src/navigation/app_router.dart';

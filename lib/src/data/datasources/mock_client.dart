@@ -1,9 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
+import 'dart:convert' show jsonDecode;
+import 'dart:io' show Platform, File;
 
-import 'package:coins/src/configurations/types.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
+import '../../configurations/types.dart';
 import '../../contracts/coins_client_interface.dart';
 
 class MockClient implements CoinsClientInterface {

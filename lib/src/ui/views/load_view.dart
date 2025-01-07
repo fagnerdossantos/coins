@@ -1,5 +1,7 @@
-import 'package:coins/src/ui/widgets/flag_switcher_random.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show BuildContext, Center, Scaffold, StatelessWidget, Widget;
+
+import '../widgets/flag_switcher_random.dart';
 
 class LoadView extends StatelessWidget {
   const LoadView({super.key});

@@ -1,6 +1,7 @@
-import 'package:coins/src/ui/views/about_view.dart';
-import 'package:coins/src/ui/widgets/home_builder.dart';
-import 'package:go_router/go_router.dart';
+import 'package:go_router/go_router.dart' show GoRoute, GoRouter;
+
+import '../ui/views/about_view.dart';
+import '../ui/widgets/home_builder.dart';
 
 class AppRouter {
   final GoRouter router = GoRouter(

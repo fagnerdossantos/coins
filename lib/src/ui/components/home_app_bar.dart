@@ -1,4 +1,16 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        BoxDecoration,
+        BuildContext,
+        Column,
+        DecoratedBox,
+        Expanded,
+        FlexibleSpaceBar,
+        SliverAppBar,
+        Stack,
+        StatelessWidget,
+        Text,
+        Widget;
 
 import '../../configurations/utils.dart';
 import '../../data/models/coin.dart';

@@ -1,8 +1,9 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart'
+    show BuildContext, ListenableBuilder, State, StatefulWidget, Widget;
 
 import '../../data/datasources/coins_cache.dart';
 import '../../data/repositories/coins_repository.dart';
-import '../../providers/app_provider.dart';
+import '../../configurations/app_instancies.dart';
 import '../viewmodel/coins_viewmodel.dart';
 import '../views/home_view.dart';
 import '../views/load_view.dart';

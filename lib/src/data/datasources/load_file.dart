@@ -1,8 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
+import 'dart:convert' show jsonDecode;
+import 'dart:io' show Platform, File;
 
-import 'package:coins/src/contracts/file_loader_interface.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/services.dart' show rootBundle;
+
+import '../../contracts/file_loader_interface.dart';
 
 class LoadFile implements FileLoaderInterface {
   @override

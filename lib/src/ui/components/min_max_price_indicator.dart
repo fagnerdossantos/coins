@@ -1,4 +1,18 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        BuildContext,
+        Column,
+        FontWeight,
+        Icon,
+        Icons,
+        MainAxisAlignment,
+        Row,
+        SizedBox,
+        StatelessWidget,
+        Text,
+        TextStyle,
+        Theme,
+        Widget;
 
 import '../../configurations/utils.dart';
 

@@ -1,4 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        AppBar,
+        BuildContext,
+        Color,
+        PreferredSize,
+        Size,
+        StatelessWidget,
+        Text,
+        Theme,
+        Widget,
+        kToolbarHeight;
 
 import '../../data/models/coin.dart';
 import '../../configurations/utils.dart';

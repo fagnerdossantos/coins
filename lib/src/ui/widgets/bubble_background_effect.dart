@@ -1,7 +1,23 @@
-import 'dart:math';
+import 'dart:math' show Random, sqrt, pow;
 
-import 'package:coins/src/configurations/utils.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart'
+    show
+        Alignment,
+        AnimatedPositioned,
+        BoxDecoration,
+        BoxShape,
+        BuildContext,
+        Color,
+        Container,
+        Stack,
+        State,
+        StatefulWidget,
+        Text,
+        TextStyle,
+        Widget,
+        WidgetsBinding;
+
+import '../../configurations/colors.dart';
 
 class Coordinates {
   double x;

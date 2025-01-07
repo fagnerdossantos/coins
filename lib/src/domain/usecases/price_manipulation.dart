@@ -6,10 +6,6 @@ class PriceManipulation {
     return amount * (firstInBRL / secondInBRL);
   }
 
-  double calculatePriceByPercentage(double price, double pctChange) {
-    return (price * (pctChange / 100));
-  }
-
   double percentageChange(double currentPrice, double referencePrice) {
     return ((currentPrice - referencePrice) / referencePrice) * 100;
   }

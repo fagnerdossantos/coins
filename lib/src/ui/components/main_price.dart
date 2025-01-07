@@ -1,4 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        BuildContext,
+        Colors,
+        Column,
+        MainAxisAlignment,
+        Offset,
+        Shadow,
+        StatelessWidget,
+        Text,
+        Theme,
+        Widget;
 
 import '../../configurations/utils.dart';
 import '../../data/models/coin.dart';
