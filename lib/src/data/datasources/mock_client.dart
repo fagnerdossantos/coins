@@ -1,14 +1,15 @@
 import 'dart:convert' show jsonDecode;
-import 'dart:io' show Platform, File;
+import 'package:universal_io/io.dart' show Platform, File;
 
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../../configurations/types.dart';
 import '../../contracts/coins_client_interface.dart';
+import '../../domain/core/result.dart';
 
 class MockClient implements CoinsClientInterface {
   @override
-  Future<APIResponse> fetch({required String coinsTarget}) async {
+  Future<Result<APIResponse>> fetch({required String coinsTarget}) async {
     // Load file from local
 
     const String path = "assets/json/response_mock.json";
@@ -20,7 +21,7 @@ class MockClient implements CoinsClientInterface {
 
       return Future.delayed(
         duration,
-        () => response,
+        () => Ok(value: response),
       );
     }
 
@@ -30,7 +31,7 @@ class MockClient implements CoinsClientInterface {
 
     return Future.delayed(
       duration,
-      () => response,
+      () => Ok(value: response),
     );
   }
 }

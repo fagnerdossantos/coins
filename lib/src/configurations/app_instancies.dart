@@ -7,6 +7,7 @@ import '../data/datasources/load_file.dart';
 import '../data/datasources/mock_client.dart';
 import '../data/helpers/coins_data_intern.dart';
 import '../data/repositories/coins_repository.dart';
+import '../ui/viewmodel/coins_viewmodel.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -32,10 +33,17 @@ class AppInstancies {
 
     getIt.registerSingleton(
       CoinsRepository(
-        coinsClient: getIt<CoinsClientInterface>(instanceName: "mock"),
-        // coinsClient: getIt<CoinsClientInterface>(),
+        // coinsClient: getIt<CoinsClientInterface>(instanceName: "mock"),
+        coinsClient: getIt<CoinsClientInterface>(),
         helper: getIt<CoinsDataIntern>(),
         cache: getIt<CoinsCache>(),
+      ),
+    );
+
+    getIt.registerSingleton(
+      CoinsViewmodel(
+        cache: getIt<CoinsCache>(),
+        repository: getIt<CoinsRepository>(),
       ),
     );
   }

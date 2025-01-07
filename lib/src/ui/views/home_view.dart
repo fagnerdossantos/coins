@@ -4,11 +4,13 @@ import 'package:flutter/material.dart'
         FloatingActionButton,
         Icon,
         Icons,
+        ListenableBuilder,
         MediaQuery,
         NestedScrollView,
         Scaffold,
         Size,
         StatelessWidget,
+        Visibility,
         Widget;
 
 import '../../configurations/utils.dart';
@@ -48,10 +50,19 @@ class HomeView extends StatelessWidget {
         body: CoinsBuilder(data: model.coins),
       ),
 
-      // Floating Action Button
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => model.loadCoins(),
-        child: const Icon(Icons.restart_alt),
+      floatingActionButton: ListenableBuilder(
+        listenable: model,
+        builder: (context, child) {
+          return Visibility(
+            //
+            visible: !model.load.running,
+
+            child: FloatingActionButton(
+              onPressed: () => model.load.execute(),
+              child: const Icon(Icons.restart_alt),
+            ),
+          );
+        },
       ),
     );
   }

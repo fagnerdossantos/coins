@@ -1,4 +1,7 @@
+import '../configurations/types.dart';
+import '../domain/core/result.dart';
+
 abstract interface class CoinsClientInterface {
   // Url Target
-  Future<Map<String, dynamic>> fetch({required String coinsTarget});
+  Future<Result<APIResponse>> fetch({required String coinsTarget});
 }

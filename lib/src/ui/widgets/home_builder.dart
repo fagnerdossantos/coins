@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart'
     show BuildContext, ListenableBuilder, State, StatefulWidget, Widget;
 
-import '../../data/datasources/coins_cache.dart';
-import '../../data/repositories/coins_repository.dart';
 import '../../configurations/app_instancies.dart';
 import '../viewmodel/coins_viewmodel.dart';
 import '../views/home_view.dart';
@@ -20,13 +18,8 @@ class _HomeBuilderState extends State<HomeBuilder> {
 
   @override
   void initState() {
-    //
-    model = CoinsViewmodel(
-      cache: getIt<CoinsCache>(),
-      repository: getIt<CoinsRepository>(),
-    );
-
-    model.loadCoins();
+    model = getIt<CoinsViewmodel>();
+    model.load.execute();
 
     super.initState();
   }

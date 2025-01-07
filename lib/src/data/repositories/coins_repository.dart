@@ -1,5 +1,6 @@
 import '../../configurations/types.dart';
 import '../../contracts/coins_client_interface.dart';
+import '../../domain/core/result.dart';
 import '../datasources/coins_cache.dart';
 import '../helpers/coins_data_intern.dart';
 import '../models/coin.dart';
@@ -22,13 +23,15 @@ class CoinsRepository {
   Future<void> load() async {
     final targetCoins = _helper.data.keys.join(",");
 
-    final Map<String, dynamic> response = await _coinsClient.fetch(
+    final Result response = await _coinsClient.fetch(
       coinsTarget: targetCoins,
     );
 
-    final List<Coin> coins = _mapToObject(response, _helper.data);
+    if (response is Ok) {
+      final List<Coin> coins = _mapToObject(response.value, _helper.data);
 
-    _cache.setCoins = coins;
+      _cache.setCoins = coins;
+    }
   }
 
   List<Coin> _mapToObject(Map<String, dynamic> map, CoinDataRecord intern) {

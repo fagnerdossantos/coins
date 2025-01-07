@@ -1,5 +1,5 @@
 import 'dart:convert' show jsonDecode;
-import 'dart:io' show Platform, File;
+import 'package:universal_io/io.dart' show Platform, File;
 
 import 'package:flutter/services.dart' show rootBundle;
 
