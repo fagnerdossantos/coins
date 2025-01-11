@@ -1,8 +1,7 @@
 
 [![wakatime](https://wakatime.com/badge/github/fagnerdossantos/coins.svg)](https://wakatime.com/badge/github/fagnerdossantos/coins)
 
-## Try it in Web
-[Coins](https://fagnerdossantos.github.io/coins/)
+> 🌐 Try it in Web [Coins](https://fagnerdossantos.github.io/coins/)
 
 # Coins
 
