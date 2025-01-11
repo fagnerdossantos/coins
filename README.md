@@ -41,10 +41,9 @@ Coins is an application that allows you to check real-time exchange rates and cr
 - ⚙️ **GetIt**: Dependency injection and service management.
 - 🏗️ **MVVM Architecture**: For better organization and scalability.
 
-## Videos
-> 🎥 **Needed!**
+## 🎮 Screenshot
+![coins](https://github.com/user-attachments/assets/2ab909b1-aa6f-47c2-9588-220579457b77)
 
-> ⚠️ **Error**: Coming soon...
 
 ## Contributing
 
