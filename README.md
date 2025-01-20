@@ -1,9 +1,6 @@
-
-[![wakatime](https://wakatime.com/badge/github/fagnerdossantos/coins.svg)](https://wakatime.com/badge/github/fagnerdossantos/coins)
+# Coins
 
 > 🌐 Try it in Web [Coins](https://fagnerdossantos.github.io/coins/)
-
-# Coins
 
 Coins is an application that allows you to check real-time exchange rates and cryptocurrency values. With a modern and intuitive interface, you can quickly access the most relevant currencies on the market.
 
